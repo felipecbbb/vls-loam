@@ -51,11 +51,21 @@
 
     /* ─── HERO ─── */
     .hero {
-      padding: 64px 20px 40px;
+      padding: 44px 20px 22px;
       text-align: center;
       max-width: 1080px;
       margin: 0 auto;
     }
+    .hero-simple {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(16px, 1.6vw, 20px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(247,245,240,0.68);
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+    /* overline/headline/subheadline mantenidos en CSS por si se reutilizan en otras secciones */
     .overline {
       display: inline-flex;
       align-items: center;
@@ -72,25 +82,6 @@
       width: 28px; height: 1px;
       background: var(--gold);
       opacity: 0.6;
-    }
-    .headline {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(30px, 4.4vw, 52px);
-      font-weight: 400;
-      line-height: 1.18;
-      letter-spacing: -0.01em;
-      color: var(--cream);
-      margin-bottom: 22px;
-      max-width: 920px;
-      margin-left: auto; margin-right: auto;
-    }
-    .headline em { font-style: italic; color: var(--gold); font-weight: 500; }
-    .subheadline {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 680px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
     }
 
     /* ─── VIDEO WRAPPER (placeholder) ─── */
@@ -219,26 +210,27 @@
       color: var(--muted);
       margin-bottom: 18px;
     }
-    .btn-wa {
+    .btn-community {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 28px;
-      background: #25D366;
-      color: #fff;
+      padding: 14px 30px;
+      background: var(--gold);
+      color: var(--olive-deep);
       border-radius: 6px;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.06em;
-      transition: transform .15s;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: transform .15s, background .2s, box-shadow .2s;
+      box-shadow: 0 10px 28px rgba(253,223,89,0.18);
     }
-    .btn-wa:hover { transform: translateY(-2px); }
-    .btn-wa .online {
-      width: 8px; height: 8px;
-      background: #b4ffc0;
-      border-radius: 50%;
-      animation: pulse 1.6s infinite;
+    .btn-community:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(253,223,89,0.26);
     }
+    .btn-community svg { width: 18px; height: 18px; }
     @keyframes pulse { 50% { opacity: 0.4; } }
 
     /* ─── SECTION BASE ─── */
@@ -523,13 +515,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="overline">Entrenamiento exclusivo</div>
-    <h1 class="headline">
-      El método que utilizan mis pacientes para <em>dejar de repetir el mismo patrón</em> una y otra vez.
-    </h1>
-    <p class="subheadline">
-      Si has entendido lo que te pasa pero sigues haciendo lo mismo, este entrenamiento te muestra cómo cambiarlo desde la raíz. Sin sesiones interminables. Sin promesas motivacionales.
-    </p>
+    <h1 class="hero-simple">Entrenamiento exclusivo con Lorena Amadio</h1>
   </section>
 
   <!-- VIDEO -->
@@ -553,13 +539,13 @@
     <div class="cta-caption">Plazas limitadas · Sin compromiso · 30 min</div>
   </div>
 
-  <!-- WHATSAPP BLOQUE -->
+  <!-- COMUNIDAD BLOQUE -->
   <div class="wa-block">
-    <div class="wa-title">¿Tienes dudas antes de agendar?</div>
-    <div class="wa-sub">Escríbenos directamente por WhatsApp y te respondemos personalmente.</div>
-    <a href="https://wa.me/34600000000?text=Hola%20Lorena%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20LOAM%20Club" target="_blank" rel="noopener" class="btn-wa">
-      <span class="online"></span>
-      Hablar por WhatsApp
+    <div class="wa-title">Forma parte del círculo de LOAM</div>
+    <div class="wa-sub">Contenido semanal de Lorena, ejercicios y recordatorios para seguir trabajando en ti entre llamada y llamada.</div>
+    <a href="#" onclick="event.preventDefault();" class="btn-community" aria-disabled="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Únete a la comunidad
     </a>
   </div>
 
@@ -736,8 +722,10 @@
   </footer>
 
   <!-- WHATSAPP FLOTANTE -->
-  <a href="https://wa.me/34600000000?text=Hola%20Lorena%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20LOAM%20Club" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1c-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5s0-.4 0-.6c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.8 3.3 1.3 5.2 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.8 0-3.5-.5-5-1.4l-.4-.2-3 .9.9-2.9-.2-.3c-1-1.5-1.5-3.3-1.5-5.1 0-4.6 3.8-8.4 8.4-8.4 4.6 0 8.4 3.8 8.4 8.4-.1 4.5-3.9 8.4-8.6 8.4z"/></svg>
+  <a href="https://wa.me/34600000000?text=Hola%20Lorena%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20LOAM%20Club" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M16.003 3.2C8.932 3.2 3.2 8.932 3.2 16c0 2.267.6 4.48 1.733 6.427L3.2 28.8l6.56-1.707A12.73 12.73 0 0 0 16.003 28.8C23.074 28.8 28.8 23.067 28.8 16c0-3.42-1.333-6.64-3.76-9.053A12.71 12.71 0 0 0 16.003 3.2zm0 23.467a10.65 10.65 0 0 1-5.433-1.494l-.39-.232-4.053 1.056 1.078-3.944-.254-.408a10.6 10.6 0 0 1-1.633-5.645c0-5.872 4.781-10.65 10.685-10.65a10.63 10.63 0 0 1 7.55 3.133 10.59 10.59 0 0 1 3.13 7.524c0 5.872-4.78 10.65-10.68 10.65zm5.843-7.972c-.32-.16-1.893-.934-2.187-1.04-.293-.107-.507-.16-.72.16-.213.32-.827 1.04-1.013 1.253-.187.213-.373.24-.693.08-.32-.16-1.353-.499-2.58-1.589-.953-.85-1.597-1.899-1.784-2.219-.187-.32-.02-.493.14-.653.144-.144.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.72-1.733-.987-2.373-.26-.624-.523-.539-.72-.549l-.613-.011c-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093 1.307 3.307.16.213 2.253 3.44 5.467 4.826.763.328 1.358.524 1.823.673.767.244 1.464.21 2.016.127.615-.092 1.893-.774 2.16-1.52.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z"/>
+    </svg>
   </a>
 
 </body>
