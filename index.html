@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOAM Club · Entrenamiento exclusivo con Lorena Amadio</title>
+  <meta name="description" content="Descubre el método LOAM. Entrenamiento 1:1 con Lorena Amadio para desactivar patrones de autosabotaje y dependencia emocional." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --olive: #5B6644;
+      --olive-deep: #3f4830;
+      --olive-darker: #2e3322;
+      --olive-soft: #8a9470;
+      --gold: #FDDF59;
+      --gold-hover: #f5d030;
+      --black: #1A1A1A;
+      --cream: #F7F5F0;
+      --white: #FFFFFF;
+      --muted: rgba(247,245,240,0.72);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Arial Nova', Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── TOP BAR / BRAND ─── */
+    .topbar {
+      background: var(--olive-deep);
+      padding: 22px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(253,223,89,0.12);
+    }
+    .brand-logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+    }
+    .brand-logo em { font-style: italic; font-weight: 500; }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 64px 20px 40px;
+      text-align: center;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .overline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 26px;
+    }
+    .overline::before, .overline::after {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+    .headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(30px, 4.4vw, 52px);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 22px;
+      max-width: 920px;
+      margin-left: auto; margin-right: auto;
+    }
+    .headline em { font-style: italic; color: var(--gold); font-weight: 500; }
+    .subheadline {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* ─── VIDEO WRAPPER (placeholder) ─── */
+    .video-section {
+      padding: 0 20px 48px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--olive-deep);
+      border: 1px solid rgba(253,223,89,0.25);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(253,223,89,0.08);
+    }
+    .video-placeholder {
+      position: absolute; inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image:
+        linear-gradient(180deg, rgba(26,26,26,0.5) 0%, rgba(63,72,48,0.6) 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><g stroke='%23FDDF59' fill='none' stroke-width='0.8' stroke-linecap='round' opacity='0.08'><path d='M400 0 C396 100,360 220,300 330 C270 380,230 420,190 450'/><path d='M400 0 C404 100,440 220,500 330 C530 380,570 420,610 450'/><path d='M300 330 C250 350,180 358,80 355'/><path d='M500 330 C550 350,620 358,720 355'/></g></svg>");
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+    .play-btn {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--olive-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 12px rgba(253,223,89,0.12), 0 0 0 24px rgba(253,223,89,0.06);
+      margin-bottom: 22px;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .video-placeholder:hover .play-btn {
+      transform: scale(1.08);
+      box-shadow: 0 0 0 14px rgba(253,223,89,0.18), 0 0 0 28px rgba(253,223,89,0.08);
+    }
+    .play-btn svg { width: 28px; height: 28px; margin-left: 4px; }
+    .video-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .video-sub {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: var(--cream);
+      font-size: 20px;
+    }
+    .video-note {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(247,245,240,0.42);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── PRIMARY CTA ─── */
+    .cta-block {
+      text-align: center;
+      padding: 32px 20px 64px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 22px 54px;
+      background: var(--gold);
+      color: var(--olive-deep);
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 14px 40px rgba(253,223,89,0.25);
+      transition: transform .2s, box-shadow .2s, background .2s;
+      font-family: inherit;
+    }
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 48px rgba(253,223,89,0.32);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .cta-caption {
+      margin-top: 16px;
+      font-size: 12px;
+      color: rgba(247,245,240,0.5);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── WHATSAPP BLOCK ─── */
+    .wa-block {
+      background: var(--olive-deep);
+      padding: 34px 24px;
+      margin: 0 20px 72px;
+      max-width: 680px;
+      margin-left: auto; margin-right: auto;
+      border-radius: 6px;
+      text-align: center;
+      border: 1px solid rgba(253,223,89,0.15);
+    }
+    .wa-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--cream);
+    }
+    .wa-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      transition: transform .15s;
+    }
+    .btn-wa:hover { transform: translateY(-2px); }
+    .btn-wa .online {
+      width: 8px; height: 8px;
+      background: #b4ffc0;
+      border-radius: 50%;
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.4; } }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 90px 20px; }
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .section-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 3.6vw, 42px);
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; color: var(--gold); font-weight: 500; }
+    .section-intro {
+      text-align: center;
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 64px;
+      line-height: 1.7;
+    }
+
+    /* ─── CASOS (social proof) ─── */
+    .casos {
+      background: var(--olive-deep);
+    }
+    .casos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .caso {
+      background: rgba(247,245,240,0.04);
+      border: 1px solid rgba(253,223,89,0.14);
+      border-radius: 6px;
+      padding: 26px 26px 24px;
+      transition: border-color .25s, transform .25s;
+    }
+    .caso:hover {
+      border-color: rgba(253,223,89,0.4);
+      transform: translateY(-3px);
+    }
+    .caso-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .caso-avatar {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--olive-soft);
+      color: var(--olive-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      font-family: 'Playfair Display', serif;
+      flex-shrink: 0;
+      border: 1.5px solid var(--gold);
+    }
+    .caso-meta .name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--cream);
+    }
+    .caso-meta .info {
+      font-size: 11px;
+      color: rgba(247,245,240,0.55);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .caso-result {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--gold);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .caso-text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── AUTORIDAD LORENA ─── */
+    .autoridad {
+      background: var(--black);
+    }
+    .autoridad-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .autoridad-img {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--olive-deep);
+      border: 1px solid rgba(253,223,89,0.25);
+    }
+    .autoridad-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .autoridad-text h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+    .autoridad-text h3 em { font-style: italic; color: var(--gold); font-weight: 500; }
+    .autoridad-text p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .autoridad-text p strong { color: var(--gold); font-weight: 600; }
+
+    /* ─── GALERÍA DE EVIDENCIA ─── */
+    .gallery {
+      background: var(--olive-deep);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .gal-item {
+      aspect-ratio: 1;
+      background: rgba(247,245,240,0.04);
+      border: 1px solid rgba(253,223,89,0.1);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      text-align: center;
+      transition: border-color .25s, transform .2s;
+    }
+    .gal-item:hover {
+      border-color: rgba(253,223,89,0.35);
+      transform: translateY(-2px);
+    }
+    .gal-icon {
+      width: 36px; height: 36px;
+      color: var(--gold);
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+    .gal-quote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--cream);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .gal-author {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ─── CIERRE ─── */
+    .cierre {
+      background: var(--gold);
+      color: var(--olive-deep);
+      text-align: center;
+    }
+    .cierre .section-label { color: var(--olive-deep); opacity: 0.7; }
+    .cierre .section-title { color: var(--olive-deep); }
+    .cierre .section-title em { color: var(--olive-deep); font-weight: 600; }
+    .cierre .section-intro { color: rgba(63,72,48,0.8); }
+    .btn-dark {
+      display: inline-block;
+      padding: 22px 54px;
+      background: var(--olive-deep);
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
+    }
+    .btn-dark:hover { background: var(--black); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--olive-darker);
+      padding: 36px 20px 32px;
+      text-align: center;
+      border-top: 1px solid rgba(253,223,89,0.1);
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .footer-logo em { font-style: italic; font-weight: 500; }
+    .footer-text {
+      font-size: 12px;
+      color: rgba(247,245,240,0.45);
+      line-height: 1.8;
+    }
+    .footer-text a {
+      color: rgba(247,245,240,0.7);
+      transition: color .2s;
+    }
+    .footer-text a:hover { color: var(--gold); }
+
+    /* ─── FLOATING WA ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 22px; right: 22px;
+      z-index: 50;
+      background: #25D366;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 34px rgba(37,211,102,0.4);
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 28px; height: 28px; color: #fff; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 820px) {
+      .casos-grid { grid-template-columns: 1fr; }
+      .autoridad-grid { grid-template-columns: 1fr; gap: 36px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 44px 16px 28px; }
+      section { padding: 70px 16px; }
+      .btn-primary, .btn-dark { padding: 18px 38px; font-size: 13px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .wa-float { width: 52px; height: 52px; bottom: 16px; right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR / BRAND -->
+  <div class="topbar">
+    <a href="https://felipecbbb.github.io/loam/" class="brand-logo">LOAM CL<em>U</em>B</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overline">Entrenamiento exclusivo</div>
+    <h1 class="headline">
+      El método que utilizan mis pacientes para <em>dejar de repetir el mismo patrón</em> una y otra vez.
+    </h1>
+    <p class="subheadline">
+      Si has entendido lo que te pasa pero sigues haciendo lo mismo, este entrenamiento te muestra cómo cambiarlo desde la raíz. Sin sesiones interminables. Sin promesas motivacionales.
+    </p>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="video-section">
+    <div class="video-wrap" id="video">
+      <!-- Cuando esté el VSL, reemplaza todo este bloque por el iframe del hosting (YouTube/Vimeo/Mux). Mantén el aspect-ratio. -->
+      <div class="video-placeholder" onclick="document.getElementById('cta-main').scrollIntoView({behavior:'smooth'})">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-label">Vídeo de presentación</div>
+        <div class="video-sub">"Cuida tus raíces. Lo demás crece solo."</div>
+      </div>
+    </div>
+    <div class="video-note">&lt;!-- Hueco reservado para el VSL. Insertar embed cuando esté grabado. --&gt;</div>
+  </section>
+
+  <!-- CTA PRIMARIO -->
+  <div class="cta-block" id="cta-main">
+    <a href="agendar.html" class="btn-primary">Agendar llamada con Lorena →</a>
+    <div class="cta-caption">Plazas limitadas · Sin compromiso · 30 min</div>
+  </div>
+
+  <!-- WHATSAPP BLOQUE -->
+  <div class="wa-block">
+    <div class="wa-title">¿Tienes dudas antes de agendar?</div>
+    <div class="wa-sub">Escríbenos directamente por WhatsApp y te respondemos personalmente.</div>
+    <a href="https://wa.me/34600000000?text=Hola%20Lorena%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20LOAM%20Club" target="_blank" rel="noopener" class="btn-wa">
+      <span class="online"></span>
+      Hablar por WhatsApp
+    </a>
+  </div>
+
+  <!-- CASOS DE ÉXITO -->
+  <section class="casos">
+    <div class="section-inner">
+      <div class="section-label">Historias reales</div>
+      <h2 class="section-title">Lo que han conseguido <em>dentro del método</em></h2>
+      <p class="section-intro">Personas que llevaban años bloqueadas en el mismo patrón y encontraron, por fin, el camino de vuelta a sí mismas.</p>
+
+      <div class="casos-grid">
+        <div class="caso">
+          <div class="caso-head">
+            <div class="caso-avatar">M</div>
+            <div class="caso-meta">
+              <div class="name">María, 28</div>
+              <div class="info">Ansiedad crónica · 6 semanas</div>
+            </div>
+          </div>
+          <div class="caso-result">Dejó los ataques de pánico nocturnos</div>
+          <p class="caso-text">Después de tres años de ansiedad con crisis semanales, entendió desde dónde se originaba su patrón y aprendió a desactivarlo antes de que escalara.</p>
+        </div>
+
+        <div class="caso">
+          <div class="caso-head">
+            <div class="caso-avatar">C</div>
+            <div class="caso-meta">
+              <div class="name">Carla, 35</div>
+              <div class="info">Dependencia emocional · 3 meses</div>
+            </div>
+          </div>
+          <div class="caso-result">Recuperó su autoestima tras 8 años de relación tóxica</div>
+          <p class="caso-text">Identificó el origen de su miedo al abandono y trabajó en construir una base interna de seguridad que ya no dependía del otro.</p>
+        </div>
+
+        <div class="caso">
+          <div class="caso-head">
+            <div class="caso-avatar">P</div>
+            <div class="caso-meta">
+              <div class="name">Paula, 42</div>
+              <div class="info">Límites familiares · 2 meses</div>
+            </div>
+          </div>
+          <div class="caso-result">Puso límites con su madre por primera vez</div>
+          <p class="caso-text">Dejó atrás la culpa que le llevaba a ceder siempre y aprendió a decir "no" sin sentir que rompía el vínculo.</p>
+        </div>
+
+        <div class="caso">
+          <div class="caso-head">
+            <div class="caso-avatar">L</div>
+            <div class="caso-meta">
+              <div class="name">Lucía, 31</div>
+              <div class="info">Autosabotaje profesional · 4 meses</div>
+            </div>
+          </div>
+          <div class="caso-result">Aceptó el ascenso que llevaba dos años rechazando</div>
+          <p class="caso-text">Entendió que su miedo al éxito venía de un mandato familiar antiguo. Desactivó la creencia y aceptó la nueva posición sin culpa.</p>
+        </div>
+
+        <div class="caso">
+          <div class="caso-head">
+            <div class="caso-avatar">S</div>
+            <div class="caso-meta">
+              <div class="name">Sara, 26</div>
+              <div class="info">Relaciones intermitentes · 8 semanas</div>
+            </div>
+          </div>
+          <div class="caso-result">Salió del bucle de volver una y otra vez con su ex</div>
+          <p class="caso-text">Comprendió el mecanismo de recompensa intermitente que la mantenía enganchada y construyó rutinas que hicieron innecesaria esa vuelta.</p>
+        </div>
+
+        <div class="caso">
+          <div class="caso-head">
+            <div class="caso-avatar">A</div>
+            <div class="caso-meta">
+              <div class="name">Ana, 38</div>
+              <div class="info">Maternidad sin identidad · 5 meses</div>
+            </div>
+          </div>
+          <div class="caso-result">Reconectó con quién era antes de ser madre</div>
+          <p class="caso-text">Recuperó espacios personales, hobbies y vínculos que había dejado sin darse cuenta durante los primeros años de maternidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECUNDARIO -->
+  <div class="cta-block">
+    <a href="agendar.html" class="btn-primary">Quiero agendar mi llamada →</a>
+    <div class="cta-caption">Respuesta en menos de 24 h tras agendar</div>
+  </div>
+
+  <!-- AUTORIDAD -->
+  <section class="autoridad">
+    <div class="section-inner autoridad-grid">
+      <div class="autoridad-img">
+        <img src="lorena.png" alt="Lorena Amadio, Psicóloga" />
+      </div>
+      <div class="autoridad-text">
+        <div class="section-label" style="text-align:left;">Quién está detrás</div>
+        <h3>Lorena Amadio — psicóloga especializada en <em>patrones profundos.</em></h3>
+        <p>Llevo más de una década acompañando a personas que han entendido perfectamente lo que les pasa pero no consiguen cambiarlo. He trabajado con <strong>cientos de pacientes 1:1</strong> y he construido un método replicable a partir de lo que funcionaba de verdad en consulta.</p>
+        <p>Autora de <strong>dos libros publicados</strong> y con una comunidad de más de <strong>230.000 personas</strong> en redes. LOAM Club nació para poder llevar este trabajo a quienes no pueden acceder a terapia individual semanal pero sí quieren hacer un cambio real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE EVIDENCIA (testimonios cortos) -->
+  <section class="gallery">
+    <div class="section-inner">
+      <div class="section-label">Dicen las alumnas</div>
+      <h2 class="section-title">Pequeños cambios que <em>se sienten enormes</em></h2>
+      <p class="section-intro">Extractos reales del grupo privado de LOAM Club. Lo más valioso no son los grandes hitos, sino los días en los que algo, por fin, encaja.</p>
+
+      <div class="gallery-grid">
+        <div class="gal-item">
+          <svg class="gal-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+          <p class="gal-quote">"Por primera vez en años no me desperté con el pecho apretado."</p>
+          <div class="gal-author">Marta · Semana 3</div>
+        </div>
+        <div class="gal-item">
+          <svg class="gal-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+          <p class="gal-quote">"Dije que no sin pedir perdón. Y no se hundió el mundo."</p>
+          <div class="gal-author">Elena · Semana 5</div>
+        </div>
+        <div class="gal-item">
+          <svg class="gal-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+          <p class="gal-quote">"Entendí por qué siempre acababa con el mismo tipo de persona."</p>
+          <div class="gal-author">Sandra · Semana 2</div>
+        </div>
+        <div class="gal-item">
+          <svg class="gal-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+          <p class="gal-quote">"Dejé de tomarme lo que no era mío. Literal y emocional."</p>
+          <div class="gal-author">Inés · Semana 4</div>
+        </div>
+        <div class="gal-item">
+          <svg class="gal-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+          <p class="gal-quote">"No es que todo esté bien. Es que yo estoy mejor con todo."</p>
+          <div class="gal-author">Raquel · Semana 6</div>
+        </div>
+        <div class="gal-item">
+          <svg class="gal-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+          <p class="gal-quote">"Primer fin de semana sin mirarle el móvil. Y sin culpa."</p>
+          <div class="gal-author">Teresa · Semana 7</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="cierre">
+    <div class="section-inner">
+      <div class="section-label">El siguiente paso</div>
+      <h2 class="section-title">Reserva tu llamada <em>sin compromiso.</em></h2>
+      <p class="section-intro">30 minutos con el equipo de LOAM para ver si este proceso encaja contigo. Si no encaja, te lo decimos. Si encaja, te explicamos cómo continuar.</p>
+      <a href="agendar.html" class="btn-dark">Agendar mi llamada ahora</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">LOAM CL<em>U</em>B</div>
+    <p class="footer-text">
+      © 2026 Lorena Amadio · Todos los derechos reservados
+      &nbsp;·&nbsp;
+      <a href="legal/aviso-legal.html">Aviso legal</a>
+      &nbsp;·&nbsp;
+      <a href="legal/privacidad.html">Privacidad</a>
+      &nbsp;·&nbsp;
+      <a href="legal/cookies.html">Cookies</a>
+      &nbsp;·&nbsp;
+      <a href="legal/terminos.html">Términos</a>
+    </p>
+  </footer>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/34600000000?text=Hola%20Lorena%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20LOAM%20Club" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1c-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5s0-.4 0-.6c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.8 3.3 1.3 5.2 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.8 0-3.5-.5-5-1.4l-.4-.2-3 .9.9-2.9-.2-.3c-1-1.5-1.5-3.3-1.5-5.1 0-4.6 3.8-8.4 8.4-8.4 4.6 0 8.4 3.8 8.4 8.4-.1 4.5-3.9 8.4-8.6 8.4z"/></svg>
+  </a>
+
+</body>
+</html>
