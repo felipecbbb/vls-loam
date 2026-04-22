@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LOAM Club · Entrenamiento exclusivo con Lorena Amadio</title>
-  <meta name="description" content="Descubre el método LOAM. Entrenamiento 1:1 con Lorena Amadio para desactivar patrones de autosabotaje y dependencia emocional." />
+  <title>Llamada confirmada · LOAM Club</title>
+  <meta name="description" content="Tu llamada con Lorena está confirmada. Mientras tanto, únete a la comunidad de LOAM Club." />
+  <meta name="robots" content="noindex,nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
@@ -33,7 +34,7 @@
     }
     a { color: inherit; text-decoration: none; }
 
-    /* ─── TOP BAR / BRAND ─── */
+    /* ─── TOP BAR ─── */
     .topbar {
       background: var(--olive-deep);
       padding: 22px 20px;
@@ -49,9 +50,53 @@
     }
     .brand-logo em { font-style: italic; font-weight: 500; }
 
+    /* ─── CONFIRMATION BANNER ─── */
+    .confirm-banner {
+      background: var(--olive);
+      padding: 26px 20px;
+      text-align: center;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(253,223,89,0.2);
+    }
+    .confirm-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 180'><g stroke='%23F7F5F0' fill='none' stroke-width='0.8' stroke-linecap='round' opacity='0.06'><path d='M200 180 C220 130,260 90,320 40 C360 10,400 0,430 0'/><path d='M900 0 C870 30,830 80,780 130 C760 160,740 175,720 180'/></g></svg>");
+      background-size: cover;
+      pointer-events: none;
+    }
+    .confirm-inner {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+    }
+    .check-pill {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--olive-deep);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .check-pill svg { width: 16px; height: 16px; }
+    .confirm-text strong {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--gold);
+    }
+
     /* ─── HERO ─── */
     .hero {
-      padding: 44px 20px 22px;
+      padding: 54px 20px 22px;
       text-align: center;
       max-width: 1080px;
       margin: 0 auto;
@@ -61,30 +106,12 @@
       font-size: clamp(16px, 1.6vw, 20px);
       font-weight: 400;
       font-style: italic;
-      color: rgba(247,245,240,0.68);
+      color: rgba(247,245,240,0.7);
       letter-spacing: 0.02em;
-      line-height: 1.4;
-    }
-    /* overline/headline/subheadline mantenidos en CSS por si se reutilizan en otras secciones */
-    .overline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 26px;
-    }
-    .overline::before, .overline::after {
-      content: '';
-      width: 28px; height: 1px;
-      background: var(--gold);
-      opacity: 0.6;
+      line-height: 1.5;
     }
 
-    /* ─── VIDEO WRAPPER (placeholder) ─── */
+    /* ─── VIDEO ─── */
     .video-section {
       padding: 0 20px 48px;
       max-width: 1080px;
@@ -151,16 +178,18 @@
       letter-spacing: 0.08em;
     }
 
-    /* ─── PRIMARY CTA ─── */
+    /* ─── CTA PRIMARIO: COMUNIDAD ─── */
     .cta-block {
       text-align: center;
-      padding: 32px 20px 64px;
+      padding: 16px 20px 64px;
       max-width: 720px;
       margin: 0 auto;
     }
-    .btn-primary {
-      display: inline-block;
-      padding: 22px 54px;
+    .btn-community {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 22px 50px;
       background: var(--gold);
       color: var(--olive-deep);
       font-weight: 800;
@@ -174,12 +203,12 @@
       transition: transform .2s, box-shadow .2s, background .2s;
       font-family: inherit;
     }
-    .btn-primary:hover {
+    .btn-community:hover {
       background: var(--gold-hover);
       transform: translateY(-2px);
       box-shadow: 0 20px 48px rgba(253,223,89,0.32);
     }
-    .btn-primary:active { transform: translateY(0); }
+    .btn-community svg { width: 20px; height: 20px; }
     .cta-caption {
       margin-top: 16px;
       font-size: 12px;
@@ -187,57 +216,62 @@
       letter-spacing: 0.05em;
     }
 
-    /* ─── WHATSAPP BLOCK ─── */
-    .wa-block {
+    /* ─── STEPS (qué hacer mientras esperas) ─── */
+    .steps {
       background: var(--olive-deep);
-      padding: 34px 24px;
-      margin: 0 20px 72px;
-      max-width: 680px;
-      margin-left: auto; margin-right: auto;
+      padding: 90px 20px;
+    }
+    .steps-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 56px;
+    }
+    .step {
+      background: rgba(247,245,240,0.04);
+      border: 1px solid rgba(253,223,89,0.14);
       border-radius: 6px;
-      text-align: center;
-      border: 1px solid rgba(253,223,89,0.15);
+      padding: 28px 26px;
+      text-align: left;
+      transition: border-color .25s, transform .25s;
     }
-    .wa-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 22px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: var(--cream);
+    .step:hover {
+      border-color: rgba(253,223,89,0.35);
+      transform: translateY(-3px);
     }
-    .wa-sub {
-      font-size: 14px;
-      color: var(--muted);
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--olive-deep);
+      letter-spacing: 0.16em;
+      background: var(--gold);
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
       margin-bottom: 18px;
     }
-    .btn-wa {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background: #25D366;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 700;
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .step-text {
       font-size: 14px;
-      letter-spacing: 0.06em;
-      transition: transform .15s;
+      color: var(--muted);
+      line-height: 1.7;
     }
-    .btn-wa:hover { transform: translateY(-2px); }
-    .btn-wa .online {
-      width: 8px; height: 8px;
-      background: #b4ffc0;
-      border-radius: 50%;
-      animation: pulse 1.6s infinite;
-    }
-    @keyframes pulse { 50% { opacity: 0.4; } }
 
     /* ─── SECTION BASE ─── */
     section { padding: 90px 20px; }
-    .section-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
     .section-label {
       text-align: center;
       font-size: 11px;
@@ -267,10 +301,8 @@
       line-height: 1.7;
     }
 
-    /* ─── CASOS (social proof) ─── */
-    .casos {
-      background: var(--olive-deep);
-    }
+    /* ─── CASOS ─── */
+    .casos { background: var(--black); }
     .casos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -307,11 +339,7 @@
       flex-shrink: 0;
       border: 1.5px solid var(--gold);
     }
-    .caso-meta .name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--cream);
-    }
+    .caso-meta .name { font-size: 15px; font-weight: 700; color: var(--cream); }
     .caso-meta .info {
       font-size: 11px;
       color: rgba(247,245,240,0.55);
@@ -332,10 +360,8 @@
       line-height: 1.65;
     }
 
-    /* ─── AUTORIDAD LORENA ─── */
-    .autoridad {
-      background: var(--black);
-    }
+    /* ─── AUTORIDAD ─── */
+    .autoridad { background: var(--olive-deep); }
     .autoridad-grid {
       display: grid;
       grid-template-columns: 340px 1fr;
@@ -347,7 +373,7 @@
       border-radius: 6px;
       overflow: hidden;
       aspect-ratio: 4 / 5;
-      background: var(--olive-deep);
+      background: var(--olive-darker);
       border: 1px solid rgba(253,223,89,0.25);
     }
     .autoridad-img img {
@@ -373,10 +399,8 @@
     }
     .autoridad-text p strong { color: var(--gold); font-weight: 600; }
 
-    /* ─── GALERÍA DE EVIDENCIA ─── */
-    .gallery {
-      background: var(--olive-deep);
-    }
+    /* ─── GALERÍA ─── */
+    .gallery { background: var(--black); }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -432,8 +456,10 @@
     .cierre .section-title em { color: var(--olive-deep); font-weight: 600; }
     .cierre .section-intro { color: rgba(63,72,48,0.8); }
     .btn-dark {
-      display: inline-block;
-      padding: 22px 54px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 22px 50px;
       background: var(--olive-deep);
       color: var(--gold);
       font-weight: 800;
@@ -445,6 +471,7 @@
       transition: transform .2s, background .2s;
     }
     .btn-dark:hover { background: var(--black); transform: translateY(-2px); }
+    .btn-dark svg { width: 20px; height: 20px; }
 
     /* ─── FOOTER ─── */
     footer {
@@ -467,10 +494,7 @@
       color: rgba(247,245,240,0.45);
       line-height: 1.8;
     }
-    .footer-text a {
-      color: rgba(247,245,240,0.7);
-      transition: color .2s;
-    }
+    .footer-text a { color: rgba(247,245,240,0.7); transition: color .2s; }
     .footer-text a:hover { color: var(--gold); }
 
     /* ─── FLOATING WA ─── */
@@ -488,16 +512,18 @@
       transition: transform .2s;
     }
     .wa-float:hover { transform: scale(1.08); }
-    .wa-float svg { width: 28px; height: 28px; color: #fff; }
+    .wa-float svg { width: 30px; height: 30px; color: #fff; }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 820px) {
+      .steps-grid { grid-template-columns: 1fr; }
       .casos-grid { grid-template-columns: 1fr; }
       .autoridad-grid { grid-template-columns: 1fr; gap: 36px; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero { padding: 44px 16px 28px; }
-      section { padding: 70px 16px; }
-      .btn-primary, .btn-dark { padding: 18px 38px; font-size: 13px; }
+      .hero { padding: 36px 16px 20px; }
+      section, .steps { padding: 70px 16px; }
+      .btn-community, .btn-dark { padding: 18px 34px; font-size: 13px; }
+      .confirm-inner { flex-direction: column; gap: 8px; font-size: 13px; }
     }
     @media (max-width: 480px) {
       .gallery-grid { grid-template-columns: 1fr; }
@@ -512,48 +538,77 @@
     <a href="https://felipecbbb.github.io/loam/" class="brand-logo">LOAM CL<em>U</em>B</a>
   </div>
 
+  <!-- CONFIRMATION BANNER -->
+  <div class="confirm-banner">
+    <div class="confirm-inner">
+      <span class="check-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </span>
+      <span class="confirm-text"><strong>Llamada confirmada</strong> &nbsp;·&nbsp; Recibirás los detalles en tu email</span>
+    </div>
+  </div>
+
   <!-- HERO -->
   <section class="hero">
-    <h1 class="hero-simple">Entrenamiento exclusivo con Lorena Amadio</h1>
+    <h1 class="hero-simple">Mientras esperas tu llamada, dale al play</h1>
   </section>
 
   <!-- VIDEO -->
   <section class="video-section">
     <div class="video-wrap" id="video">
-      <!-- Cuando esté el VSL, reemplaza todo este bloque por el iframe del hosting (YouTube/Vimeo/Mux). Mantén el aspect-ratio. -->
-      <div class="video-placeholder" onclick="document.getElementById('cta-main').scrollIntoView({behavior:'smooth'})">
+      <!-- Reemplaza este bloque por el iframe del vídeo real (YouTube/Vimeo/Mux) manteniendo el aspect-ratio. -->
+      <div class="video-placeholder" onclick="document.getElementById('cta-community').scrollIntoView({behavior:'smooth'})">
         <div class="play-btn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         </div>
-        <div class="video-label">Vídeo de presentación</div>
-        <div class="video-sub">"Cuida tus raíces. Lo demás crece solo."</div>
+        <div class="video-label">Mensaje personal</div>
+        <div class="video-sub">"Cómo prepararte para nuestra llamada"</div>
       </div>
     </div>
-    <div class="video-note">&lt;!-- Hueco reservado para el VSL. Insertar embed cuando esté grabado. --&gt;</div>
+    <div class="video-note">&lt;!-- Hueco reservado para el vídeo de thank-you. Insertar embed cuando esté grabado. --&gt;</div>
   </section>
 
-  <!-- CTA PRIMARIO -->
-  <div class="cta-block" id="cta-main">
-    <a href="agendar.html" class="btn-primary">Agendar llamada con Lorena →</a>
-    <div class="cta-caption">Plazas limitadas · Sin compromiso · 30 min</div>
-  </div>
-
-  <!-- WHATSAPP BLOQUE -->
-  <div class="wa-block">
-    <div class="wa-title">¿Tienes dudas antes de agendar?</div>
-    <div class="wa-sub">Escríbenos por WhatsApp y te respondemos personalmente antes de reservar tu llamada.</div>
-    <a href="https://wa.me/34600000000?text=Hola%20Lorena%2C%20tengo%20una%20duda%20antes%20de%20agendar" target="_blank" rel="noopener" class="btn-wa">
-      <span class="online"></span>
-      Hablar por WhatsApp
+  <!-- CTA COMUNIDAD -->
+  <div class="cta-block" id="cta-community">
+    <a href="#" onclick="event.preventDefault();" class="btn-community" aria-disabled="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Únete a la comunidad
     </a>
+    <div class="cta-caption">Contenido semanal de Lorena · Ejercicios · Comunidad privada</div>
   </div>
 
-  <!-- CASOS DE ÉXITO -->
+  <!-- STEPS -->
+  <section class="steps">
+    <div class="steps-inner">
+      <div class="section-label">Mientras esperas</div>
+      <h2 class="section-title">Tres cosas que puedes hacer <em>antes de la llamada</em></h2>
+
+      <div class="steps-grid">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div class="step-title">Mira el vídeo de arriba</div>
+          <p class="step-text">10 minutos para llegar a la llamada con contexto y sacarle el máximo partido al tiempo con Lorena.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div class="step-title">Únete a la comunidad</div>
+          <p class="step-text">Recibe contenido semanal, ejercicios y acompañamiento entre llamadas dentro del círculo privado de LOAM.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div class="step-title">Anota qué quieres trabajar</div>
+          <p class="step-text">Llega a la llamada con el patrón concreto que quieres desactivar. Lo usaremos como punto de partida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS -->
   <section class="casos">
     <div class="section-inner">
       <div class="section-label">Historias reales</div>
-      <h2 class="section-title">Lo que han conseguido <em>dentro del método</em></h2>
-      <p class="section-intro">Personas que llevaban años bloqueadas en el mismo patrón y encontraron, por fin, el camino de vuelta a sí mismas.</p>
+      <h2 class="section-title">Antes de la llamada, <em>mira lo que es posible</em></h2>
+      <p class="section-intro">Personas que llegaron al método como tú, con un bloqueo concreto, y consiguieron desactivar patrones que llevaban años arrastrando.</p>
 
       <div class="casos-grid">
         <div class="caso">
@@ -631,12 +686,6 @@
     </div>
   </section>
 
-  <!-- CTA SECUNDARIO -->
-  <div class="cta-block">
-    <a href="agendar.html" class="btn-primary">Quiero agendar mi llamada →</a>
-    <div class="cta-caption">Respuesta en menos de 24 h tras agendar</div>
-  </div>
-
   <!-- AUTORIDAD -->
   <section class="autoridad">
     <div class="section-inner autoridad-grid">
@@ -644,15 +693,15 @@
         <img src="lorena.png" alt="Lorena Amadio, Psicóloga" />
       </div>
       <div class="autoridad-text">
-        <div class="section-label" style="text-align:left;">Quién está detrás</div>
+        <div class="section-label" style="text-align:left;">Quién te llamará</div>
         <h3>Lorena Amadio — psicóloga especializada en <em>patrones profundos.</em></h3>
         <p>Llevo más de una década acompañando a personas que han entendido perfectamente lo que les pasa pero no consiguen cambiarlo. He trabajado con <strong>cientos de pacientes 1:1</strong> y he construido un método replicable a partir de lo que funcionaba de verdad en consulta.</p>
-        <p>Autora de <strong>dos libros publicados</strong> y con una comunidad de más de <strong>230.000 personas</strong> en redes. LOAM Club nació para poder llevar este trabajo a quienes no pueden acceder a terapia individual semanal pero sí quieren hacer un cambio real.</p>
+        <p>Autora de <strong>dos libros publicados</strong> y con una comunidad de más de <strong>230.000 personas</strong> en redes. En nuestra llamada vamos a ver si el método encaja contigo y cómo podemos trabajar juntas.</p>
       </div>
     </div>
   </section>
 
-  <!-- GALERÍA DE EVIDENCIA (testimonios cortos) -->
+  <!-- GALERÍA -->
   <section class="gallery">
     <div class="section-inner">
       <div class="section-label">Dicen las alumnas</div>
@@ -697,10 +746,13 @@
   <!-- CIERRE -->
   <section class="cierre">
     <div class="section-inner">
-      <div class="section-label">El siguiente paso</div>
-      <h2 class="section-title">Reserva tu llamada <em>sin compromiso.</em></h2>
-      <p class="section-intro">30 minutos con el equipo de LOAM para ver si este proceso encaja contigo. Si no encaja, te lo decimos. Si encaja, te explicamos cómo continuar.</p>
-      <a href="agendar.html" class="btn-dark">Agendar mi llamada ahora</a>
+      <div class="section-label">Nos vemos pronto</div>
+      <h2 class="section-title">Mientras tanto, <em>quédate cerca.</em></h2>
+      <p class="section-intro">La comunidad privada de LOAM es el espacio donde ocurren los pequeños cambios día a día. Entra, preséntate y empieza a acompañarte.</p>
+      <a href="#" onclick="event.preventDefault();" class="btn-dark" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Únete a la comunidad
+      </a>
     </div>
   </section>
 
@@ -721,9 +773,9 @@
   </footer>
 
   <!-- WHATSAPP FLOTANTE -->
-  <a href="https://wa.me/34600000000?text=Hola%20Lorena%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20LOAM%20Club" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <a href="https://wa.me/34600000000?text=Hola%20Lorena%2C%20acabo%20de%20agendar%20mi%20llamada" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-      <path d="M16.003 3.2C8.932 3.2 3.2 8.932 3.2 16c0 2.267.6 4.48 1.733 6.427L3.2 28.8l6.56-1.707A12.73 12.73 0 0 0 16.003 28.8C23.074 28.8 28.8 23.067 28.8 16c0-3.42-1.333-6.64-3.76-9.053A12.71 12.71 0 0 0 16.003 3.2zm0 23.467a10.65 10.65 0 0 1-5.433-1.494l-.39-.232-4.053 1.056 1.078-3.944-.254-.408a10.6 10.6 0 0 1-1.633-5.645c0-5.872 4.781-10.65 10.685-10.65a10.63 10.63 0 0 1 7.55 3.133 10.59 10.59 0 0 1 3.13 7.524c0 5.872-4.78 10.65-10.68 10.65zm5.843-7.972c-.32-.16-1.893-.934-2.187-1.04-.293-.107-.507-.16-.72.16-.213.32-.827 1.04-1.013 1.253-.187.213-.373.24-.693.08-.32-.16-1.353-.499-2.58-1.589-.953-.85-1.597-1.899-1.784-2.219-.187-.32-.02-.493.14-.653.144-.144.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.72-1.733-.987-2.373-.26-.624-.523-.539-.72-.549l-.613-.011c-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093 1.307 3.307.16.213 2.253 3.44 5.467 4.826.763.328 1.358.524 1.823.673.767.244 1.464.21 2.016.127.615-.092 1.893-.774 2.16-1.52.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z"/>
+      <path d="M16.003 3.2C8.932 3.2 3.2 8.932 3.2 16c0 2.267.6 4.48 1.733 6.427L3.2 28.8l6.56-1.707A12.73 12.73 0 0 0 16.003 28.8C23.074 28.8 28.8 23.067 28.8 16c0-3.42-1.333-6.64-3.76-9.053A12.71 12.71 0 0 0 16.003 3.2zm0 23.467a10.65 10.65 0 0 1-5.433-1.494l-.39-.232-4.053 1.056 1.078-3.944-.254-.408a10.6 10.6 0 0 1-1.633-5.645c0-5.872 4.781-10.65 10.685-10.65a10.63 10.63 0 0 1 7.55 3.133 10.59 10.59 0 0 1 3.13 7.524c0 5.872-4.78 10.65-10.68 10.65zm5.843-7.972c-.32-.16-1.893-.934-2.031-1.04-.293-.107-.507-.16-.72.16-.213.32-.827 1.04-1.013 1.253-.187.213-.373.24-.693.08-.32-.16-1.353-.499-2.58-1.589-.953-.85-1.597-1.899-1.784-2.219-.187-.32-.02-.493.14-.653.144-.144.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.72-1.733-.987-2.373-.26-.624-.523-.539-.72-.549l-.613-.011c-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093 1.307 3.307.16.213 2.253 3.44 5.467 4.826.763.328 1.358.524 1.823.673.767.244 1.464.21 2.016.127.615-.092 1.893-.774 2.16-1.52.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z"/>
     </svg>
   </a>
 
